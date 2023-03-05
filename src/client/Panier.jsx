@@ -95,7 +95,6 @@ const Panier = () => {
                                             <td className="align-middle">{commands.quantite}</td>
                                             <td className="align-middle">{commands.prixUnitaire} €</td>
                                             <td className="align-middle">{commands.prixTotal} €</td>
-                                            <td className="align-middle"><button className="btn btn-sm btn-primary"><i className="fa fa-times"></i></button></td>
                                         </tr>
                                             ))
                                         ) : (
