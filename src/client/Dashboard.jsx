@@ -54,21 +54,20 @@ const Dashboard = ({ setCount }) => {
       
         const formData = new FormData(event.target);
         const quantite = parseInt(formData.get('quantite'), 10);
-        console.log(quantite)
-
+      
         if (quantite === 0) {
-            toast.warning("La quantité doit être supérieure à zéro");
-            return;
-          }
-        
-          if (product.stock.available === 0) {
-            toast.warning("Le produit est en rupture de stock");
-            return;
-          }
-        
-          if (quantite > product.stock.available) {
-            toast.warning("La quantité demandée est supérieure à la quantité en stock");
-            return;
+          toast.warning("La quantité doit être supérieure à zéro");
+          return;
+        }
+      
+        if (product.stock.available === 0) {
+          toast.warning("Le produit est en rupture de stock");
+          return;
+        }
+      
+        if (quantite > product.stock.available) {
+          toast.warning("La quantité demandée est supérieure à la quantité en stock");
+          return;
         }
       
         const commandeData = {
@@ -82,16 +81,17 @@ const Dashboard = ({ setCount }) => {
       
         console.log(commandeData);
       
-      
         createCommande(commandeData)
           .then(response => {
             console.log(response);
+
             toast.success("Votre commande a bien été ajouter aux panier");
           })
           .catch(error => {
             console.error(`Erreur: ${error}`);
           });
       };
+      
       
       
 
